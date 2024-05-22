@@ -1,7 +1,6 @@
 package com.generation.model;
 
 import java.util.ArrayList;
-import java.util.Locale.Category;
 
 public class Product extends Entity 
 {
@@ -12,6 +11,9 @@ public class Product extends Entity
     private Employee employee;
     private Client client;
     private Category category;
+
+    private ArrayList<Review> reviews = new ArrayList<>();
+    private ArrayList<Contract> contracts = new ArrayList<>();
 
     public Product(){}
 
@@ -165,5 +167,51 @@ public class Product extends Entity
     {
         return super.equals(o) && o instanceof Product;
     }
+
+    public ArrayList<Review> getReviews()
+    {
+        return reviews;
+    }
+
+    public ArrayList<Contract> getContracts()
+    {
+        return contracts;
+    }
+
+    public void setReviews(ArrayList<Review> reviews)
+    {
+        this.reviews = reviews;
+    }
+
+    public void setContracts(ArrayList<Contract> contracts)
+    {
+        this.contracts = contracts;
+    }
+
+    public void addReview(Review r)
+    {
+        reviews.add(r);
+        r.setProduct(this);
+    }
+
+    public void addContract(Contract c)
+    {
+        contracts.add(c);
+        c.setProduct(this);
+    }
+
+    public void removeReview(Review r)
+    {
+        reviews.remove(r);
+        r.setProduct(null);
+    }
+
+    public void removeContract(Contract c)
+    {
+        contracts.remove(c);
+        c.setProduct(null);
+    }
+
+    
 
 }
