@@ -9,6 +9,9 @@ public class Employee extends Entity
 {
     private String name,surname;
 
+    private ArrayList<Product> products = new ArrayList<>();
+
+
     public Employee(){}
 
     public Employee(String name, String surname)
@@ -45,6 +48,26 @@ public class Employee extends Entity
         this.surname = surname;
     }
 
+    public ArrayList<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(ArrayList<Product> products) {
+        this.products = products;
+    }
+
+    public void addProduct(Product p)
+    {
+        products.add(p);
+        p.setEmployee(this);
+    }
+    
+    public void removeProduct(Product p)
+    {
+        products.remove(p);
+        p.setEmployee(null);
+    }
+
     @Override
     public  ArrayList<String> getErrors()
     {
@@ -58,4 +81,12 @@ public class Employee extends Entity
 
         return res;
     }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        return super.equals(o) && o instanceof Employee;
+    }
+
+    
 }
