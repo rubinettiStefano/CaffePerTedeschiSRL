@@ -43,5 +43,20 @@ public abstract class Entity
      */
     public abstract ArrayList<String> getErrors();//dovrà essere sovrascritto da chi estende questa classe
     
+    @Override
+    public int hashCode()
+    {
+        return id;
+    }
+
+
+    @Override
+    public boolean equals(Object o)
+    {
+        if(!(o instanceof Entity))
+            return false;
+    
+        return o.hashCode() == this.hashCode();
+    }
 
 }
