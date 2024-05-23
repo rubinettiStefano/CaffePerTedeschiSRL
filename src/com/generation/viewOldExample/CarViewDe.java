@@ -1,24 +1,22 @@
-package com.generation.view;
+package com.generation.viewOldExample;
 
 import java.util.ArrayList;
 
-import com.generation.model.Employee;
+import com.generation.model.Car;
 
-public class EmployeeViewDe implements View
+public class CarViewDe implements View
 {
 
     @Override
     public String render(Object o)
     {
-        Employee e = (Employee)o;
+        Car e = (Car)o;
         StringBuilder res  = new StringBuilder();
         res
-        .append("Hallo, ich bin ein Mitarbeiter mit der ID: ")
-        .append(e.getId())
-        .append(" , mit dem Namen ")
-        .append(e.getName())
-        .append(" , mit dem Nachnamen ")
-        .append(e.getSurname());
+        .append("Hallo, ich bin ein Mitarbeiter mit der MODELLO: ")
+        .append(e.model)
+        .append(" , mit dem PREZZO ")
+        .append(e.price);
 
         return res.toString();
     }
@@ -33,5 +31,4 @@ public class EmployeeViewDe implements View
 
         return res.toString();
     }
-
 }
