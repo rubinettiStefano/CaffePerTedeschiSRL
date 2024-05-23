@@ -1,6 +1,6 @@
 package com.generation.esempiointerfaccia;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface SalvataggioSuFile 
 {
@@ -8,5 +8,5 @@ public interface SalvataggioSuFile
      * Deve salvare una lista di interi su un file
      * @param interi
      */
-    void salva(ArrayList<Integer> interi);
+    void salva(List<Integer> interi);
 }

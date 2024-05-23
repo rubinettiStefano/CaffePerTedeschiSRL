@@ -2,10 +2,11 @@ package com.generation.model;
 
 import java.util.ArrayList;
 
+
 /**
  * Un employee è una persona che lavora per noi
  */
-public class Employee extends Entity
+public class Employee extends Entity 
 {
     private String name,surname;
 
