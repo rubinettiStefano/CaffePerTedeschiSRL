@@ -1,0 +1,7 @@
+I tuoi numeri sono:
+2
+54
+23
+76
+1
+File Finito
