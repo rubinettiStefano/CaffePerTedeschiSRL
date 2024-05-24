@@ -1,6 +1,5 @@
 package com.generation.repository;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,11 +8,13 @@ import java.util.List;
 
 import com.generation.model.Employee;
 
-public class EmployeeRepositoryImpl implements IRepository<Employee>
+public class EmployeeRepositoryImpl extends BaseRepository<Employee> implements IRepository<Employee>
 {
-    private Connection con = ConnectionFactory.getConnection();
-    private String tableName = "employee";
-
+    
+    public EmployeeRepositoryImpl(String tablename)
+    {
+        super(tablename);
+    }
 
     @Override
     public List<Employee> select(String condition) throws SQLException 
@@ -24,7 +25,7 @@ public class EmployeeRepositoryImpl implements IRepository<Employee>
         ResultSet rs = ps.executeQuery();
 
         while(rs.next())
-            res.add(convertToEmployee(rs));
+            res.add(convertToEntity(rs));
 
         ps.close();
         return res;
@@ -75,12 +76,8 @@ public class EmployeeRepositoryImpl implements IRepository<Employee>
         pStatement.close();
     }
 
-    private String replaceTableName(String query)
-    {
-        return query.replace("[table]", tableName);
-    }
-
-    private Employee convertToEmployee(ResultSet rs) throws SQLException 
+    @Override
+    protected Employee convertToEntity(ResultSet rs) throws SQLException 
     {
         Employee e = new Employee();
         e.setId(rs.getInt("id"));
