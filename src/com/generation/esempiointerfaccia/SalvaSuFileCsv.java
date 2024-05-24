@@ -2,13 +2,13 @@ package com.generation.esempiointerfaccia;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class SalvaSuFileCsv implements SalvataggioSuFile
 {
 
     @Override
-    public void salva(ArrayList<Integer> interi) 
+    public void salva(List<Integer> interi) 
     {
          try 
         {

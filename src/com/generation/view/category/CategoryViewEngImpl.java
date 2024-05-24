@@ -1,38 +1,38 @@
-package com.generation.view.employee;
+package com.generation.view.category;
 
 import java.util.List;
 
-import com.generation.model.Employee;
+import com.generation.model.Category;
 import com.generation.view.IView;
 
-public class EmployeeViewEngImpl implements IView
+public class CategoryViewEngImpl implements IView
 {
-    private static EmployeeViewEngImpl singleInstance ;
+    private static CategoryViewEngImpl singleInstance ;
 
-    public static EmployeeViewEngImpl getSingleton()
+    public static CategoryViewEngImpl getSingleton()
     {
         //lazy inizialization
         if(singleInstance==null)
-            singleInstance = new EmployeeViewEngImpl();
+            singleInstance = new CategoryViewEngImpl();
 
 
         return singleInstance;
     }
 
-    private EmployeeViewEngImpl(){}
+
+    private CategoryViewEngImpl(){}
 
     @Override
     public String render(Object o)
     {
         StringBuilder res  = new StringBuilder();
-        Employee e = (Employee)o;
+        Category e = (Category)o;
         res
-        .append("Hi, i am an employee with id: ")
+        .append("id Category: ")
         .append(e.getId())
-        .append(" , with name ")
-        .append(e.getName())
-        .append(" , with surname ")
-        .append(e.getSurname());
+        .append(" , Category Name: ")
+        .append(e.getName());
+        
 
         return res.toString();
     }

@@ -1,4 +1,0 @@
-I tuoi numeri sono:
-2
-3
-File Finito

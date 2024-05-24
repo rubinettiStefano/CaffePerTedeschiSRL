@@ -31,11 +31,11 @@ public class Prova
             return;
         }
 
-        if(lang.equals("DE"))
-        {
-            view = new EmployeeViewDe();
-            return;
-        }
+        // if(lang.equals("DE"))
+        // {
+        //     view = new EmployeeViewDe();
+        //     return;
+        // }
 
         view = new EmployeeViewEng();
 
