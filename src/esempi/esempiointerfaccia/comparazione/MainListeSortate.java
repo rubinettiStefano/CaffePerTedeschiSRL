@@ -1,4 +1,4 @@
-package esempi.esempiointerfaccia;
+package esempi.esempiointerfaccia.comparazione;
 
 import java.util.ArrayList;
 import java.util.Collections;
