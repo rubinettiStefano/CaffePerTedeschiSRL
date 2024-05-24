@@ -1,6 +1,5 @@
 package com.generation.repository;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,10 +8,14 @@ import java.util.List;
 
 import com.generation.model.Review;
 
-public class ReviewRepositoryImpl implements IRepository<Review>
+public class ReviewRepositoryImpl extends BaseRepository<Review> implements IRepository<Review>
 {
-    private Connection con = ConnectionFactory.getConnection();
-    private String tableName = "review";
+    public ReviewRepositoryImpl(String tableName) 
+    {
+        super(tableName);
+    }
+
+
 
 
     @Override
@@ -24,7 +27,7 @@ public class ReviewRepositoryImpl implements IRepository<Review>
         ResultSet rs = ps.executeQuery();
 
         while(rs.next())
-            res.add(convertToReview(rs));
+            res.add(convertToEntity(rs));
 
         ps.close();
         return res;
@@ -77,12 +80,10 @@ public class ReviewRepositoryImpl implements IRepository<Review>
         pStatement.close();
     }
 
-    private String replaceTableName(String query)
-    {
-        return query.replace("[table]", tableName);
-    }
 
-    private Review convertToReview(ResultSet rs) throws SQLException 
+
+    @Override
+    protected Review convertToEntity(ResultSet rs) throws SQLException 
     {
         Review e = new Review();
         e.setId(rs.getInt("id"));

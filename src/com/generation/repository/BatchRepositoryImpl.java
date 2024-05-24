@@ -1,6 +1,5 @@
 package com.generation.repository;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,10 +9,12 @@ import java.util.List;
 
 import com.generation.model.Batch;
 
-public class BatchRepositoryImpl implements IRepository<Batch>
+public class BatchRepositoryImpl extends BaseRepository<Batch> implements IRepository<Batch>
 {
-    private Connection con = ConnectionFactory.getConnection();
-    private String tableName = "batch";
+    public BatchRepositoryImpl(String tableName) 
+    {
+        super(tableName);
+    }
 
     @Override
     public List<Batch> select(String condition) throws SQLException 
@@ -24,7 +25,7 @@ public class BatchRepositoryImpl implements IRepository<Batch>
         ResultSet rs = ps.executeQuery();
 
         while(rs.next())
-            res.add(convertToBatch(rs));
+            res.add(convertToEntity(rs));
 
         ps.close();
         return res;
@@ -81,12 +82,8 @@ public class BatchRepositoryImpl implements IRepository<Batch>
         pStatement.close();
     }
 
-    private String replaceTableName(String query)
-    {
-        return query.replace("[table]", tableName);
-    }
 
-    private Batch convertToBatch(ResultSet rs) throws SQLException 
+    protected Batch convertToEntity(ResultSet rs) throws SQLException 
     {
         Batch e = new Batch();
         e.setId(rs.getInt("id"));

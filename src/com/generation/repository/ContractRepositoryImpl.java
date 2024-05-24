@@ -1,6 +1,5 @@
 package com.generation.repository;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,10 +9,13 @@ import java.util.List;
 
 import com.generation.model.Contract;
 
-public class ContractRepositoryImpl implements IRepository<Contract>
+public class ContractRepositoryImpl extends BaseRepository<Contract> implements IRepository<Contract>
 {
-    private Connection con = ConnectionFactory.getConnection();
-    private String tableName = "contract";
+
+
+    public ContractRepositoryImpl(String tableName) {
+        super(tableName);
+    }
 
 
     @Override
@@ -25,7 +27,7 @@ public class ContractRepositoryImpl implements IRepository<Contract>
         ResultSet rs = ps.executeQuery();
 
         while(rs.next())
-            res.add(convertToContract(rs));
+            res.add(convertToEntity(rs));
 
         ps.close();
         return res;
@@ -79,12 +81,9 @@ public class ContractRepositoryImpl implements IRepository<Contract>
         pStatement.close();
     }
 
-    private String replaceTableName(String query)
-    {
-        return query.replace("[table]", tableName);
-    }
 
-    private Contract convertToContract(ResultSet rs) throws SQLException 
+    @Override
+    protected Contract convertToEntity(ResultSet rs) throws SQLException 
     {
         Contract e = new Contract();
         e.setId(rs.getInt("id"));

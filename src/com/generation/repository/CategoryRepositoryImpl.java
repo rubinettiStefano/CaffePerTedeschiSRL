@@ -1,6 +1,5 @@
 package com.generation.repository;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,10 +8,13 @@ import java.util.List;
 
 import com.generation.model.Category;
 
-public class CategoryRepositoryImpl implements IRepository<Category>
+public class CategoryRepositoryImpl extends BaseRepository<Category> implements IRepository<Category>
 {
-     private Connection con = ConnectionFactory.getConnection();
-    private String tableName = "category";
+
+
+    public CategoryRepositoryImpl(String tableName) {
+        super(tableName);
+    }
 
 
     @Override
@@ -24,7 +26,7 @@ public class CategoryRepositoryImpl implements IRepository<Category>
         ResultSet rs = ps.executeQuery();
 
         while(rs.next())
-            res.add(convertToCategory(rs));
+            res.add(convertToEntity(rs));
 
         ps.close();
         return res;
@@ -73,13 +75,10 @@ public class CategoryRepositoryImpl implements IRepository<Category>
         pStatement.close();
     }
 
-    private String replaceTableName(String query)
-    {
-        return query.replace("[table]", tableName);
-    }
 
-    private Category convertToCategory(ResultSet rs) throws SQLException 
-    {
+
+    @Override
+    protected Category convertToEntity(ResultSet rs) throws SQLException {
         Category e = new Category();
         e.setId(rs.getInt("id"));
 

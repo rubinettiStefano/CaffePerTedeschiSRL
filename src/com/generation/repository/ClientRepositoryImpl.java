@@ -1,6 +1,5 @@
 package com.generation.repository;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,10 +8,13 @@ import java.util.List;
 
 import com.generation.model.Client;
 
-public class ClientRepositoryImpl implements IRepository<Client>
+public class ClientRepositoryImpl extends BaseRepository<Client> implements IRepository<Client> 
 {
-    private Connection con = ConnectionFactory.getConnection();
-    private String tableName = "client";
+
+
+    public ClientRepositoryImpl(String tableName) {
+        super(tableName);
+    }
 
 
     @Override
@@ -79,12 +81,22 @@ public class ClientRepositoryImpl implements IRepository<Client>
         pStatement.close();
     }
 
-    private String replaceTableName(String query)
-    {
-        return query.replace("[table]", tableName);
-    }
 
     private Client convertToClient(ResultSet rs) throws SQLException 
+    {
+        Client e = new Client();
+        e.setId(rs.getInt("id"));
+        e.setLegalName(rs.getString("legalname"));
+        e.setAddress(rs.getString("address"));
+        e.setCity(rs.getString("city"));
+        e.setCountry(rs.getString("country"));
+
+        return e;
+    }
+
+
+    @Override
+    protected Client convertToEntity(ResultSet rs) throws SQLException 
     {
         Client e = new Client();
         e.setId(rs.getInt("id"));

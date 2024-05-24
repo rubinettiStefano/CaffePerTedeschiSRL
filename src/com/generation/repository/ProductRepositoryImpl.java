@@ -34,13 +34,16 @@ public class ProductRepositoryImpl extends BaseRepository<Product> implements IR
     @Override
     public void insert(Product t) throws SQLException 
     {
-        String query = replaceTableName("INSERT INTO [table] (name,description,weight,grossweight) VALUES (?,?,?,?);");
+        String query = replaceTableName("INSERT INTO [table] (name,description,weight,grossweight,employeeid,clientid,categoryid) VALUES (?,?,?,?,?,?,?);");
         
         PreparedStatement pStatement = con.prepareStatement(query);
         pStatement.setString(1, t.getName());
         pStatement.setString(2, t.getDescription());
         pStatement.setInt(3, t.getWeight());
         pStatement.setInt(4, t.getGrossWeight());
+        pStatement.setInt(5, t.getEmployee_id());
+        pStatement.setInt(6, t.getClient_id());
+        pStatement.setInt(7, t.getCategory_id());
 
 
         pStatement.execute();
@@ -50,14 +53,18 @@ public class ProductRepositoryImpl extends BaseRepository<Product> implements IR
     @Override
     public void update(Product t) throws SQLException 
     {
-        String query = replaceTableName("UPDATE [table] SET name=?,description=?,weight=?,grossweight=? WHERE id=?");
+        String query = replaceTableName("UPDATE [table] SET name=?,description=?,weight=?,grossweight=?,employeeid=?,clientid=?,categoryid=? WHERE id=?");
         
         PreparedStatement pStatement = con.prepareStatement(query);
         pStatement.setString(1, t.getName());
         pStatement.setString(2, t.getDescription());
         pStatement.setInt(3, t.getWeight());
         pStatement.setInt(4, t.getGrossWeight());
-        pStatement.setInt(5, t.getId());
+        pStatement.setInt(3, t.getWeight());
+        pStatement.setInt(5, t.getEmployee_id());
+        pStatement.setInt(6, t.getClient_id());
+        pStatement.setInt(7, t.getCategory_id());
+        pStatement.setInt(8, t.getId());
 
 
         pStatement.execute();
@@ -86,6 +93,9 @@ public class ProductRepositoryImpl extends BaseRepository<Product> implements IR
         e.setDescription(rs.getString("description"));
         e.setWeight(rs.getInt("weight"));
         e.setGrossWeight(rs.getInt("grossweight"));
+        e.setEmployee_id(rs.getInt("employeeid"));
+        e.setClient_id(rs.getInt("clientid"));
+        e.setCategory_id(rs.getInt("categoryid"));
 
         return e;
     }
