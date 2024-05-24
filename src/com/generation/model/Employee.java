@@ -6,8 +6,21 @@ import java.util.ArrayList;
 /**
  * Un employee è una persona che lavora per noi
  */
-public class Employee extends Entity 
+public class Employee extends Entity implements Comparable<Employee>
 {
+    @Override
+    public int compareTo(Employee o) 
+    {
+        //deve restituire un numero POSITIVO se this>o
+        //0 se sono uguali
+        //NEGATIVO se this<0
+        String myNominative = this.name+this.surname;
+        String yourNominative = o.name+o.surname;
+
+        return myNominative.compareTo(yourNominative);
+    }
+
+
     private String name,surname;
 
     private ArrayList<Product> products = new ArrayList<>();
@@ -88,6 +101,13 @@ public class Employee extends Entity
     {
         return super.equals(o) && o instanceof Employee;
     }
+
+    @Override
+    public String toString() {
+        return "Employee [name=" + name + ", surname=" + surname + "]";
+    }
+
+  
 
     
 }
