@@ -1,7 +1,6 @@
 package com.generation.model;
 
 import java.util.ArrayList;
-import java.util.Locale.Category;
 
 public class Product extends Entity 
 {

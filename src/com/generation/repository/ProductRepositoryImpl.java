@@ -6,22 +6,22 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.generation.model.Employee;
+import com.generation.model.Product;
 
-public class EmployeeRepositoryImpl extends BaseRepository<Employee> implements IRepository<Employee>
+public class ProductRepositoryImpl extends BaseRepository<Product> implements IRepository<Product>
 {
-    
-    public EmployeeRepositoryImpl(String tablename)
+
+    public ProductRepositoryImpl(String tableName) 
     {
-        super(tablename);
+        super(tableName);
     }
 
     @Override
-    public List<Employee> select(String condition) throws SQLException 
+    public List<Product> select(String condition) throws SQLException 
     {
         PreparedStatement ps = con.prepareStatement(replaceTableName("SELECT * FROM [table] WHERE ")+condition);
 
-        List<Employee> res = new ArrayList<>();
+        List<Product> res = new ArrayList<>();
         ResultSet rs = ps.executeQuery();
 
         while(rs.next())
@@ -31,37 +31,38 @@ public class EmployeeRepositoryImpl extends BaseRepository<Employee> implements 
         return res;
     }
 
-
     @Override
-    public void insert(Employee t) throws SQLException 
+    public void insert(Product t) throws SQLException 
     {
-        String query = replaceTableName("INSERT INTO [table] (name,surname) VALUES ( ?,  ?);");
+        String query = replaceTableName("INSERT INTO [table] (name,description,weight,grossweight) VALUES (?,?,?,?);");
         
         PreparedStatement pStatement = con.prepareStatement(query);
         pStatement.setString(1, t.getName());
-        pStatement.setString(2, t.getSurname());
+        pStatement.setString(2, t.getDescription());
+        pStatement.setInt(3, t.getWeight());
+        pStatement.setInt(4, t.getGrossWeight());
 
 
         pStatement.execute();
         pStatement.close();
     }
 
-
     @Override
-    public void update(Employee t) throws SQLException 
+    public void update(Product t) throws SQLException 
     {
-        String query = replaceTableName("UPDATE [table] SET name=?,surname=? WHERE id=?");
+        String query = replaceTableName("UPDATE [table] SET name=?,description=?,weight=?,grossweight=? WHERE id=?");
         
         PreparedStatement pStatement = con.prepareStatement(query);
         pStatement.setString(1, t.getName());
-        pStatement.setString(2, t.getSurname());
-        pStatement.setInt(3, t.getId());
+        pStatement.setString(2, t.getDescription());
+        pStatement.setInt(3, t.getWeight());
+        pStatement.setInt(4, t.getGrossWeight());
+        pStatement.setInt(5, t.getId());
 
 
         pStatement.execute();
         pStatement.close();
     }
-
 
     @Override
     public void delete(int id) throws SQLException 
@@ -77,13 +78,16 @@ public class EmployeeRepositoryImpl extends BaseRepository<Employee> implements 
     }
 
     @Override
-    protected Employee convertToEntity(ResultSet rs) throws SQLException 
+    protected Product convertToEntity(ResultSet rs) throws SQLException 
     {
-        Employee e = new Employee();
+        Product e = new Product();
         e.setId(rs.getInt("id"));
         e.setName(rs.getString("name"));
-        e.setSurname(rs.getString("surname"));
+        e.setDescription(rs.getString("description"));
+        e.setWeight(rs.getInt("weight"));
+        e.setGrossWeight(rs.getInt("grossweight"));
 
         return e;
     }
+
 }
