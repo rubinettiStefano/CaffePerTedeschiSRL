@@ -2,19 +2,11 @@ package com.generation.view.product;
 
 import java.util.List;
 
-import com.generation.model.Employee;
+import com.generation.model.Product;
 import com.generation.view.IView;
 
 public class ProductViewItaImpl implements IView
 {
-
-    //private static EmployeeViewItaImpl singleInstance =  new EmployeeViewItaImpl();
-    // public static EmployeeViewItaImpl getSingleton()
-    // {
-    //     return singleInstance;
-    // }
-
-    
     private static ProductViewItaImpl singleInstance ;
 
     public static ProductViewItaImpl getSingleton()
@@ -34,14 +26,17 @@ public class ProductViewItaImpl implements IView
     public String render(Object o)
     {
         StringBuilder res  = new StringBuilder();
-        Employee e = (Employee)o;
+        Product e = (Product)o;
         res
-        .append("Ciao sono un impiegato con id: ")
+        .append("Prodotto con id: ")
         .append(e.getId())
-        .append(" , con nome ")
+        .append(" , con nome: ")
         .append(e.getName())
-        .append(" , con cognome ")
-        .append(e.getSurname());
+        .append(" , con descrizione ")
+        .append(e.getDescription())
+        .append(", con Peso Imballaggio: ")
+        .append(e.getGrossWeight())
+        .append("( Peso Prodotto: "+e.getWeight()+")");
 
         return res.toString();
     }
