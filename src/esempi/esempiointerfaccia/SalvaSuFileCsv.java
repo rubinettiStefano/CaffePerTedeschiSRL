@@ -1,28 +1,28 @@
-package com.generation.esempiointerfaccia;
+package esempi.esempiointerfaccia;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class SalvaSuFileACapo implements SalvataggioSuFile
+public class SalvaSuFileCsv implements SalvataggioSuFile
 {
 
     @Override
     public void salva(List<Integer> interi) 
     {
-        try 
+         try 
         {
-            String filename = "fileNum_"+(int)(Math.random()*10000)+".txt";
+            String filename = "fileNum_"+(int)(Math.random()*10000)+".csv";
             FileWriter fw = new FileWriter(filename);
 
             StringBuilder content = new StringBuilder();
 
-            content.append("I tuoi numeri sono:\n");
+            content.append("numero\n");
 
             for(int i:interi)
-                content.append(i).append("\n");
+                content.append(i).append(",");
 
-            content.append("File Finito");
+            content.deleteCharAt(content.length()-1);
             fw.write(content.toString());
             fw.close();
         }
@@ -30,7 +30,6 @@ public class SalvaSuFileACapo implements SalvataggioSuFile
         {
             e.printStackTrace();
         }
-
     }
 
 }

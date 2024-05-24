@@ -1,4 +1,4 @@
-package com.generation.esempiointerfaccia;
+package esempi.esempiointerfaccia;
 
 public class CalcolatriceIntera implements Calcolatrice<Integer>
 {

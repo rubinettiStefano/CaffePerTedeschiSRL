@@ -1,4 +1,4 @@
-package com.generation.esempiointerfaccia;
+package esempi.esempiointerfaccia;
 
 public interface Calcolatrice<T> 
 {

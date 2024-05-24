@@ -1,4 +1,4 @@
-package com.generation.esempiointerfaccia;
+package esempi.esempiointerfaccia;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

@@ -20,8 +20,8 @@ public class RepositoriesService
 
     private RepositoriesService(){}
 
-    IRepository<Employee> eRepo = new EmployeeRepositoryImpl("employee");
-    IRepository<Product> pRepo = new ProductRepositoryImpl("product");
+    private IRepository<Employee> eRepo = new EmployeeRepositoryImpl("employee");
+    private IRepository<Product> pRepo = new ProductRepositoryImpl("product");
 
     public List<Employee> selectAllEmployee() 
     {

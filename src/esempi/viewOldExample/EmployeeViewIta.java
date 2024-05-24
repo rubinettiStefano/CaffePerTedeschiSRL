@@ -1,21 +1,21 @@
-package com.generation.viewOldExample;
+package esempi.viewOldExample;
 
 import java.util.ArrayList;
 
 import com.generation.model.Employee;
 
-public class EmployeeViewEng implements EmployeeView
+public class EmployeeViewIta implements EmployeeView
 {
     @Override
     public String render(Employee e)
     {
         StringBuilder res  = new StringBuilder();
         res
-        .append("Hello i'm an employee with id: ")
+        .append("Ciao sono un impiegato con id: ")
         .append(e.getId())
-        .append(" , with name ")
+        .append(" , con nome ")
         .append(e.getName())
-        .append(" , with surname ")
+        .append(" , con cognome ")
         .append(e.getSurname());
 
         return res.toString();
@@ -31,5 +31,4 @@ public class EmployeeViewEng implements EmployeeView
 
         return res.toString();
     }
-
 }

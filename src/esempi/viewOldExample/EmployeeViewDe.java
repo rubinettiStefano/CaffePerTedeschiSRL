@@ -1,4 +1,4 @@
-package com.generation.viewOldExample;
+package esempi.viewOldExample;
 
 import java.util.ArrayList;
 import java.util.List;
