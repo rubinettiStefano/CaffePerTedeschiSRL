@@ -19,6 +19,7 @@ public class Category extends Entity
         this.name = name;
     }
 
+    public Category(){}
     
 
     public String getName() {

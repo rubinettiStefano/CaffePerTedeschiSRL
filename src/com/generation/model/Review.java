@@ -77,4 +77,16 @@ public class Review extends Entity
         return o.hashCode() == this.hashCode();
     }
 
+    public void setProduct_id(Integer product_id) {
+        this.product_id = product_id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
 }
