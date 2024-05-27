@@ -22,7 +22,7 @@ public class EmployeeViewEngImpl implements IView
     private EmployeeViewEngImpl(){}
 
     @Override
-    public String render(Object o)
+    public String renderOne(Object o)
     {
         StringBuilder res  = new StringBuilder();
         Employee e = (Employee)o;
@@ -38,12 +38,12 @@ public class EmployeeViewEngImpl implements IView
     }
 
     @Override
-    public String render(List<Object> l)
+    public String renderAll(List<Object> l)
     {
         StringBuilder res = new StringBuilder();
 
         for(Object e:l)
-            res.append(render(e)).append("\n");
+            res.append(renderOne(e)).append("\n");
 
         return res.toString();
     }

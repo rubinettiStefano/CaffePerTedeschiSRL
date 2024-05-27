@@ -22,7 +22,7 @@ public class ClientViewEngImpl implements IView
     private ClientViewEngImpl(){}
 
     @Override
-    public String render(Object o)
+    public String renderOne(Object o)
     {
         StringBuilder res  = new StringBuilder();
         Client e = (Client)o;
@@ -40,12 +40,12 @@ public class ClientViewEngImpl implements IView
     }
 
     @Override
-    public String render(List<Object> l)
+    public String renderAll(List<Object> l)
     {
         StringBuilder res = new StringBuilder();
 
         for(Object e:l)
-            res.append(render(e)).append("\n");
+            res.append(renderOne(e)).append("\n");
 
         return res.toString();
     }

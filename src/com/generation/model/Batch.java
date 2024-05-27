@@ -83,6 +83,8 @@ public class Batch extends Entity
         return o.hashCode() == this.hashCode();
     }
 
+    
+
     @Override
     public List<String> getErrors()
     {
@@ -112,5 +114,13 @@ public class Batch extends Entity
     public Double getWastedIncome()
     {
         return (double)unityDiscarded*contract.getUnitPrice();
+    }
+
+    public Integer getContract_id() {
+        return contract_id;
+    }
+
+    public void setContract_id(Integer contract_id) {
+        this.contract_id = contract_id;
     }
 }

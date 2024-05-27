@@ -27,7 +27,7 @@ public class EmployeeViewEng implements EmployeeView
         StringBuilder res = new StringBuilder();
 
         for(Employee e:l)
-            res.append(render(e)).append("\n");
+            res.append(renderOne(e)).append("\n");
 
         return res.toString();
     }

@@ -90,6 +90,7 @@ public class ContractRepositoryImpl extends BaseRepository<Contract> implements 
         e.setAcceptedOn(LocalDate.parse(rs.getString("acceptedon")));
         e.setUnitPrice(rs.getDouble("unitprice"));
         e.setQuantity(rs.getInt("quantity"));
+        e.setProduct_id(rs.getInt("productid"));
 
         return e;
     }

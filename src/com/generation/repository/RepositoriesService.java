@@ -298,6 +298,10 @@ public class RepositoriesService
         try 
         {
             Employee c = eRepo.select(id);
+            //Insieme di Coppie Key-Value
+            //utilizziamo una key per accedere al value corrispondente
+            //al metodo get passiamo un oggetto con il tipo della key
+            //e otteniamo un oggetto con il tipo del value
             c.setProducts(groupProducts().get("employee").get(c.getId()));
             return c;
         } 
@@ -1151,49 +1155,55 @@ public class RepositoriesService
     //avremo 3 metodi in 1
     //la chiave String sarà il nome dell'entita padre (client,employee,category)
     //il valore associato sarà la mappa con chiavi esterne verso quell'entità e prodotti figli
-    private Map<String,Map<Integer,List<Product>>> groupProducts()
+    private Map<
+                 String,  //key
+                 Map< Integer, List<Product> >  //value
+                > groupProducts()
     {
         List<Product> all = selectAllProducts();
-        Map<String,Map<Integer,List<Product>>> res = new HashMap<>();
+      
+
         Map<Integer,List<Product>> mapEmp = new HashMap<>();
         Map<Integer,List<Product>> mapCat = new HashMap<>();
         Map<Integer,List<Product>> mapCl = new HashMap<>();
 
-        for(Product b : all)
+        //char c =res.get("aaa").get(15).get(0).getName().charAt(12);
+
+        for(Product p : all)
         {
-            int fkEmp = b.getEmployee_id();
-            int fkCat = b.getCategory_id();
-            int fkCl = b.getClient_id();
+            int fkEmp = p.getEmployee_id();
+            int fkCat = p.getCategory_id();
+            int fkCl = p.getClient_id();
 
             if(!mapEmp.containsKey(fkEmp))
             {
                 List<Product> temp = new ArrayList<>();
-                temp.add(b);
+                temp.add(p);
                 mapEmp.put(fkEmp, temp);
             }
             else
-                mapEmp.get(fkEmp).add(b);
+                mapEmp.get(fkEmp).add(p);
 
             if(!mapCat.containsKey(fkCat))
             {
                 List<Product> temp = new ArrayList<>();
-                temp.add(b);
+                temp.add(p);
                 mapCat.put(fkCat, temp);
             }
             else
-                mapCat.get(fkCat).add(b);
+                mapCat.get(fkCat).add(p);
 
             
             if(!mapCl.containsKey(fkCl))
             {
                 List<Product> temp = new ArrayList<>();
-                temp.add(b);
+                temp.add(p);
                 mapCl.put(fkCl, temp);
             }
             else
-                mapCl.get(fkCl).add(b);
+                mapCl.get(fkCl).add(p);
         }
-
+        Map<String,Map<Integer,List<Product>>> res = new HashMap<>();
         res.put("employee", mapEmp);
         res.put("client", mapCl);
         res.put("category", mapCat);

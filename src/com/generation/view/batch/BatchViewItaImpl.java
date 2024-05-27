@@ -23,7 +23,7 @@ public class BatchViewItaImpl implements IView
     private BatchViewItaImpl(){}
 
     @Override
-    public String render(Object o)
+    public String renderOne(Object o)
     {
         StringBuilder res  = new StringBuilder();
         Batch e = (Batch)o;
@@ -41,12 +41,12 @@ public class BatchViewItaImpl implements IView
     }
 
     @Override
-    public String render(List<Object> l)
+    public String renderAll(List<Object> l)
     {
         StringBuilder res = new StringBuilder();
 
         for(Object e:l)
-            res.append(render(e)).append("\n");
+            res.append(renderOne(e)).append("\n");
 
         return res.toString();
     }

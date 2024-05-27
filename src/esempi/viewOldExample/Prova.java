@@ -14,7 +14,7 @@ public class Prova
         Employee e = new Employee(2,"Stefano", "Rubinetti");
         
 
-        String output = view.render(e);
+        String output = view.renderOne(e);
 
         System.out.println(output);
     }

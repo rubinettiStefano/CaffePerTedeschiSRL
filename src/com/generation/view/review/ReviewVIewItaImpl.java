@@ -5,25 +5,25 @@ import java.util.List;
 import com.generation.model.Review;
 import com.generation.view.IView;
 
-public class ReviewVIewItaImpl implements IView
+public class ReviewViewItaImpl implements IView
 {
-    private static ReviewVIewItaImpl singleInstance ;
+    private static ReviewViewItaImpl singleInstance ;
 
-    public static ReviewVIewItaImpl getSingleton()
+    public static ReviewViewItaImpl getSingleton()
     {
         //lazy inizialization
         if(singleInstance==null)
-            singleInstance = new ReviewVIewItaImpl();
+            singleInstance = new ReviewViewItaImpl();
 
 
         return singleInstance;
     }
 
 
-    private ReviewVIewItaImpl(){}
+    private ReviewViewItaImpl(){}
 
     @Override
-    public String render(Object o)
+    public String renderOne(Object o)
     {
         StringBuilder res  = new StringBuilder();
         Review e = (Review)o;
@@ -35,12 +35,12 @@ public class ReviewVIewItaImpl implements IView
     }
 
     @Override
-    public String render(List<Object> l)
+    public String renderAll(List<Object> l)
     {
         StringBuilder res = new StringBuilder();
 
         for(Object e:l)
-            res.append(render(e)).append("\n");
+            res.append(renderOne(e)).append("\n");
 
         return res.toString();
     }

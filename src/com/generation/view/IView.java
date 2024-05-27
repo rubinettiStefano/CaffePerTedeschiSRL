@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface IView 
 {
-    String render(Object o);
-    String render(List<Object> o);
+    String renderOne(Object o);
+    String renderAll(List<Object> o);
 }

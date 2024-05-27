@@ -16,7 +16,7 @@ public class EmployeeViewDe implements View
     }
 
     @Override
-    public String render(Object o)
+    public String renderOne(Object o)
     {
         Employee e = (Employee)o;
         StringBuilder res  = new StringBuilder();
@@ -39,7 +39,7 @@ public class EmployeeViewDe implements View
         StringBuilder res = new StringBuilder();
 
         for(Object e:l)
-            res.append(render(e)).append("\n");
+            res.append(renderOne(e)).append("\n");
 
         return res.toString();
     }

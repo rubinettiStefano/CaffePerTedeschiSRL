@@ -49,6 +49,8 @@ public class Contract extends Entity
             addBatch(b);
     }
 
+    
+
     public LocalDate getAcceptedOn() {
         return acceptedOn;
     }
@@ -149,5 +151,9 @@ public class Contract extends Entity
     public boolean isCompleted()
     {
         return getTotalUnitProduced() >= quantity;
+    }
+
+    public void setProduct_id(Integer product_id) {
+        this.product_id = product_id;
     }
 }

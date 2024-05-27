@@ -14,7 +14,6 @@ public class Main
         Scanner term = new Scanner(System.in);
         List<Integer> interi = new ArrayList<>();
 
-        
         for(int i=0;i<2;i++)
         {
             System.out.println("Inserisci numero");

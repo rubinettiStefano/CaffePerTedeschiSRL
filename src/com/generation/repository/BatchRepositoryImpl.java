@@ -91,7 +91,7 @@ public class BatchRepositoryImpl extends BaseRepository<Batch> implements IRepos
         e.setUnitsProduced(rs.getInt("produced"));
         e.setUnityDiscarded(rs.getInt("discarded"));
         e.setStatus(rs.getString("status"));
-
+        e.setContract_id(rs.getInt("contractid"));
         return e;
     }
 }
