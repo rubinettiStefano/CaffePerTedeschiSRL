@@ -1,6 +1,6 @@
 package com.generation.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * È una classe ASTRATTA che serve da base per tutte le classi modello
@@ -41,7 +41,7 @@ public abstract class Entity
      * Restituisce una lista con Stringhe di errore
      * Se la lista è vuota non ci sono errori
      */
-    public abstract ArrayList<String> getErrors();//dovrà essere sovrascritto da chi estende questa classe
+    public abstract List<String> getErrors();//dovrà essere sovrascritto da chi estende questa classe
     
     @Override
     public int hashCode()

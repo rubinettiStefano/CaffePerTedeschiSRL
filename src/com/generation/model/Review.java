@@ -1,6 +1,7 @@
 package com.generation.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Review extends Entity
 {
@@ -52,7 +53,7 @@ public class Review extends Entity
     }
 
     @Override
-    public ArrayList<String> getErrors() 
+    public List<String> getErrors() 
     {
         ArrayList<String> errors = new ArrayList<>();
         if(product == null )

@@ -1,11 +1,12 @@
 package com.generation.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Category extends Entity
 {
     private String name;
-    private ArrayList<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
     public Category(String name) 
     {
@@ -30,7 +31,7 @@ public class Category extends Entity
         this.name = name;
     }
 
-    public ArrayList<String> getErrors()
+    public List<String> getErrors()
     {
         ArrayList<String> errors = new ArrayList<>();
         if( name == null)
@@ -41,7 +42,7 @@ public class Category extends Entity
         return errors;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 
@@ -63,7 +64,7 @@ public class Category extends Entity
         return super.equals(o) && o instanceof Category;
     }
 
-    public ArrayList<Product> getProducts() 
+    public List<Product> getProducts() 
     {
         return products;
     }

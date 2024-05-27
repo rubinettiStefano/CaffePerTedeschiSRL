@@ -1,6 +1,7 @@
 package com.generation.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -23,7 +24,7 @@ public class Employee extends Entity implements Comparable<Employee>
 
     private String name,surname;
 
-    private ArrayList<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
 
     public Employee(){}
@@ -62,11 +63,11 @@ public class Employee extends Entity implements Comparable<Employee>
         this.surname = surname;
     }
 
-    public ArrayList<Product> getProducts() {
+    public List<Product> getProducts() {
         return products;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(List<Product> products) {
         this.products = products;
     }
 
@@ -83,7 +84,7 @@ public class Employee extends Entity implements Comparable<Employee>
     }
 
     @Override
-    public  ArrayList<String> getErrors()
+    public  List<String> getErrors()
     {
         ArrayList<String> res = new ArrayList<>();
 

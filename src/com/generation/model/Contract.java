@@ -2,13 +2,14 @@ package com.generation.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class Contract extends Entity
 {
     private Product product;
     private Integer product_id;
-    private ArrayList<Batch> batches = new ArrayList<>();
+    private List<Batch> batches = new ArrayList<>();
 
     private LocalDate acceptedOn;
     private Double unitPrice;
@@ -38,11 +39,11 @@ public class Contract extends Entity
             this.product_id = product.getId(); 
     }
 
-    public ArrayList<Batch> getBatches() {
+    public List<Batch> getBatches() {
         return batches;
     }
 
-    public void setBatches(ArrayList<Batch> batches) {
+    public void setBatches(List<Batch> batches) {
         this.batches = batches;
     }
 
@@ -80,7 +81,7 @@ public class Contract extends Entity
     }
 
     @Override
-    public ArrayList<String> getErrors()
+    public List<String> getErrors()
     {
         ArrayList<String> errors = new ArrayList<>();
         if(acceptedOn == null)

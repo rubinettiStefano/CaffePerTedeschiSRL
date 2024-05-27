@@ -2,6 +2,7 @@ package com.generation.model;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Batch extends Entity
 {
@@ -83,7 +84,7 @@ public class Batch extends Entity
     }
 
     @Override
-    public ArrayList<String> getErrors()
+    public List<String> getErrors()
     {
         ArrayList<String> errors = new ArrayList<>();
         if(contract == null)

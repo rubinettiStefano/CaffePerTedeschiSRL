@@ -1,6 +1,7 @@
 package com.generation.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Client extends Entity
 {
@@ -8,7 +9,7 @@ public class Client extends Entity
     private String address;
     private String city;
     private String country;
-    private ArrayList<Product> products = new ArrayList<>();
+    private List<Product> products = new ArrayList<>();
 
     public Client(){}
 
@@ -62,7 +63,7 @@ public class Client extends Entity
         this.country = country;
     }
     
-     public ArrayList<String> getErrors()
+     public List<String> getErrors()
      {
         ArrayList<String> errors = new ArrayList<>();
         if( legalName == null )
@@ -85,7 +86,7 @@ public class Client extends Entity
         return errors;
      }
 
-    public void setProducts(ArrayList<Product> products) 
+    public void setProducts(List<Product> products) 
     {
         this.products = products;
     }
@@ -108,7 +109,7 @@ public class Client extends Entity
         return super.equals(o) && o instanceof Client;
     }
 
-    public ArrayList<Product> getProducts() 
+    public List<Product> getProducts() 
     {
         return products;
     }
