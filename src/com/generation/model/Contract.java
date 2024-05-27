@@ -43,8 +43,10 @@ public class Contract extends Entity
         return batches;
     }
 
-    public void setBatches(List<Batch> batches) {
-        this.batches = batches;
+    public void setBatches(List<Batch> batches) 
+    {
+        for(Batch b : batches)
+            addBatch(b);
     }
 
     public LocalDate getAcceptedOn() {
@@ -102,7 +104,7 @@ public class Contract extends Entity
         return product_id;
     }
 
-    public void addBranch(Batch b)
+    public void addBatch(Batch b)
     {
         batches.add(b);
         b.setContract(this);

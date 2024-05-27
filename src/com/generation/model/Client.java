@@ -88,10 +88,11 @@ public class Client extends Entity
 
     public void setProducts(List<Product> products) 
     {
-        this.products = products;
+        for(Product p : products)
+            addProduct(p);
     }
 
-    public void addProducts(Product p)
+    public void addProduct(Product p)
     {
         products.add(p);
         p.setClient(this);

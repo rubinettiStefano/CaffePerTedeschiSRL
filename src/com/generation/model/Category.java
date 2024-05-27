@@ -42,11 +42,13 @@ public class Category extends Entity
         return errors;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProducts(List<Product> products) 
+    {
+        for(Product p : products)
+            addProduct(p);
     }
 
-    public void addProducts(Product p)
+    public void addProduct(Product p)
     {
         products.add(p);
         p.setCategory(this);

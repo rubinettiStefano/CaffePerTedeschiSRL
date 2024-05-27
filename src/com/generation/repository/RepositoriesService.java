@@ -133,110 +133,273 @@ public class RepositoriesService
     }
 //FINE CONTRACT
 //INIZIO REVIEW
-public Review selectReview(int id)
-{
-    try 
+    public Review selectReview(int id)
     {
-        Review c = rRepo.select(id);
-        return c;
-    } 
-    catch (SQLException e) 
-    {
-        e.printStackTrace();
-        return null;
+        try 
+        {
+            Review c = rRepo.select(id);
+            return c;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
-}
 
-public List<Review> selectAllReviews()
-{
-    try 
+    public List<Review> selectAllReviews()
     {
-        List<Review> res = rRepo.selectAll();
+        try 
+        {
+            List<Review> res = rRepo.selectAll();
 
-        return res;
-    } 
-    catch (SQLException e) 
-    {
-        e.printStackTrace();
-        return null;
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
-}
 
-public List<Review> selectReviews(String condition)
-{
-    try 
+    public List<Review> selectReviews(String condition)
     {
-        List<Review> res = rRepo.select(condition);
+        try 
+        {
+            List<Review> res = rRepo.select(condition);
 
-        return res;
-    } 
-    catch (SQLException e) 
-    {
-        e.printStackTrace();
-        return null;
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
-}
+
 //FINE REVIEW
 //INIZIO PRODUCT
-public Product selectProduct(int id)
-{
-    try 
+    public Product selectProduct(int id)
     {
-        Product c = pRepo.select(id);
-        c.setContracts(groupContracts().get(c.getId()));
-        c.setReviews(groupReviews().get(c.getId()));
-        //imposta i batch figli del contratto
-        //prendendo la mappa
-        //e prendendo la lista che ha come chiave l'id del contratto
-        return c;
-    } 
-    catch (SQLException e) 
-    {
-        e.printStackTrace();
-        return null;
-    }
-}
-
-public List<Product> selectAllProducts()
-{
-    try 
-    {
-        List<Product> res = pRepo.selectAll();
-
-        for(Product c : res)
+        try 
         {
+            Product c = pRepo.select(id);
             c.setContracts(groupContracts().get(c.getId()));
             c.setReviews(groupReviews().get(c.getId()));
-        }
-        return res;
-    } 
-    catch (SQLException e) 
-    {
-        e.printStackTrace();
-        return null;
-    }
-}
-
-public List<Product> selectPoducts(String condition)
-{
-    try 
-    {
-        List<Product> res = pRepo.select(condition);
-
-        for(Product c : res)
+            //imposta i batch figli del contratto
+            //prendendo la mappa
+            //e prendendo la lista che ha come chiave l'id del contratto
+            return c;
+        } 
+        catch (SQLException e) 
         {
-            c.setContracts(groupContracts().get(c.getId()));
-            c.setReviews(groupReviews().get(c.getId()));
+            e.printStackTrace();
+            return null;
         }
-        return res;
-    } 
-    catch (SQLException e) 
-    {
-        e.printStackTrace();
-        return null;
     }
-}
+
+    public List<Product> selectAllProducts()
+    {
+        try 
+        {
+            List<Product> res = pRepo.selectAll();
+
+            for(Product c : res)
+            {
+                c.setContracts(groupContracts().get(c.getId()));
+                c.setReviews(groupReviews().get(c.getId()));
+            }
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Product> selectPoducts(String condition)
+    {
+        try 
+        {
+            List<Product> res = pRepo.select(condition);
+
+            for(Product c : res)
+            {
+                c.setContracts(groupContracts().get(c.getId()));
+                c.setReviews(groupReviews().get(c.getId()));
+            }
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
 //FINE PRODUCT
+//INIZIO CLIENT
+    public Client selectClient(int id)
+    {
+        try 
+        {
+            Client c = clRepo.select(id);
+            c.setProducts(groupProducts().get("client").get(c.getId()));
+            return c;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Client> selectAllClients()
+    {
+        try 
+        {
+            List<Client> res = clRepo.selectAll();
+
+            for(Client c : res)
+            {
+                c.setProducts(groupProducts().get("client").get(c.getId()));
+            }
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Client> selectClients(String condition)
+    {
+        try 
+        {
+            List<Client> res = clRepo.select(condition);
+
+            for(Client c : res)
+            {
+                c.setProducts(groupProducts().get("client").get(c.getId()));
+            }
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+//FINE CLIENT
+//INIZIO EMPLOYEE
+    public Employee selectEmployee(int id)
+    {
+        try 
+        {
+            Employee c = eRepo.select(id);
+            c.setProducts(groupProducts().get("employee").get(c.getId()));
+            return c;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Employee> selectAllEmployees()
+    {
+        try 
+        {
+            List<Employee> res = eRepo.selectAll();
+
+            for(Employee c : res)
+            {
+                c.setProducts(groupProducts().get("employee").get(c.getId()));
+            }
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Employee> selectEmployees(String condition)
+    {
+        try 
+        {
+            List<Employee> res = eRepo.select(condition);
+
+            for(Employee c : res)
+            {
+                c.setProducts(groupProducts().get("employee").get(c.getId()));
+            }
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+//FINE EMPLOYEE
+//INIZIO CATEGORY
+    public Category selectCategory(int id)
+    {
+        try 
+        {
+            Category c = catRepo.select(id);
+            c.setProducts(groupProducts().get("category").get(c.getId()));
+            return c;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Category> selectAllCategories()
+    {
+        try 
+        {
+            List<Category> res = catRepo.selectAll();
+
+            for(Category c : res)
+            {
+                c.setProducts(groupProducts().get("category").get(c.getId()));
+            }
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Category> selectCategories(String condition)
+    {
+        try 
+        {
+            List<Category> res = catRepo.select(condition);
+
+            for(Category c : res)
+            {
+                c.setProducts(groupProducts().get("category").get(c.getId()));
+            }
+            return res;
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+//FINE CATEGORY
 
 //METODI DI UTILITY
     private Map<Integer,List<Batch>> groupBatches()

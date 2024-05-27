@@ -67,8 +67,10 @@ public class Employee extends Entity implements Comparable<Employee>
         return products;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProducts(List<Product> products) 
+    {
+        for(Product p : products)
+            addProduct(p);
     }
 
     public void addProduct(Product p)
