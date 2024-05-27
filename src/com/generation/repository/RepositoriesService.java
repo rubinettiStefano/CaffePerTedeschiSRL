@@ -401,6 +401,685 @@ public class RepositoriesService
     }
 //FINE CATEGORY
 
+//INSERT,UPDATE,DELETE
+    public void insertBatch(Batch b)
+    {
+        try 
+        {
+            bRepo.insert(b);
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertBatches(List<Batch> l)
+    {
+        try 
+        {
+            bRepo.insert(l);
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateBatch(Batch b)
+    {
+        try 
+        {
+            bRepo.update(b);
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateBatches(List<Batch> l)
+    {
+        try 
+        {
+            bRepo.update(l);
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteBatch(Batch b)
+    {
+        try 
+        {
+            bRepo.delete(b);
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteBatch(int id)
+    {
+        try 
+        {
+            bRepo.delete(id);
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteBatches(List<Batch> l)
+    {
+        try 
+        {
+            bRepo.delete(l);
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteBatches(int[] ids)
+    {
+        try 
+        {
+            bRepo.delete(ids);
+        } 
+        catch (SQLException e) 
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertEmployee(Employee e)
+    {
+        try 
+        {
+            eRepo.insert(e);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertEmployees(List<Employee> l)
+    {
+        try 
+        {
+            eRepo.insert(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateEmployee(Employee e)
+    {
+        try 
+        {
+            eRepo.update(e);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateEmployees(List<Employee> l)
+    {
+        try 
+        {
+            eRepo.update(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteEmployee(Employee e)
+    {
+        try 
+        {
+            eRepo.delete(e);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteEmployee(int id)
+    {
+        try 
+        {
+            eRepo.delete(id);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteEmployees(List<Employee> l)
+    {
+        try 
+        {
+            eRepo.delete(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteEmployees(int[] ids)
+    {
+        try 
+        {
+            eRepo.delete(ids);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    // Metodi per Product
+    public void insertProduct(Product p)
+    {
+        try 
+        {
+            pRepo.insert(p);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertProducts(List<Product> l)
+    {
+        try 
+        {
+            pRepo.insert(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateProduct(Product p)
+    {
+        try 
+        {
+            pRepo.update(p);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateProducts(List<Product> l)
+    {
+        try 
+        {
+            pRepo.update(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteProduct(Product p)
+    {
+        try 
+        {
+            pRepo.delete(p);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteProduct(int id)
+    {
+        try 
+        {
+            pRepo.delete(id);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteProducts(List<Product> l)
+    {
+        try 
+        {
+            pRepo.delete(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteProducts(int[] ids)
+    {
+        try 
+        {
+            pRepo.delete(ids);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    // Metodi per Client
+    public void insertClient(Client c)
+    {
+        try 
+        {
+            clRepo.insert(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertClients(List<Client> l)
+    {
+        try 
+        {
+            clRepo.insert(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateClient(Client c)
+    {
+        try 
+        {
+            clRepo.update(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateClients(List<Client> l)
+    {
+        try 
+        {
+            clRepo.update(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteClient(Client c)
+    {
+        try 
+        {
+            clRepo.delete(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteClient(int id)
+    {
+        try 
+        {
+            clRepo.delete(id);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteClients(List<Client> l)
+    {
+        try 
+        {
+            clRepo.delete(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteClients(int[] ids)
+    {
+        try 
+        {
+            clRepo.delete(ids);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    // Metodi per Contract
+    public void insertContract(Contract c)
+    {
+        try 
+        {
+            conRepo.insert(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertContracts(List<Contract> l)
+    {
+        try 
+        {
+            conRepo.insert(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateContract(Contract c)
+    {
+        try 
+        {
+            conRepo.update(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateContracts(List<Contract> l)
+    {
+        try 
+        {
+            conRepo.update(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteContract(Contract c)
+    {
+        try 
+        {
+            conRepo.delete(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteContract(int id)
+    {
+        try 
+        {
+            conRepo.delete(id);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteContracts(List<Contract> l)
+    {
+        try 
+        {
+            conRepo.delete(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteContracts(int[] ids)
+    {
+        try 
+        {
+            conRepo.delete(ids);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    // Metodi per Review
+    public void insertReview(Review r)
+    {
+        try 
+        {
+            rRepo.insert(r);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertReviews(List<Review> l)
+    {
+        try 
+        {
+            rRepo.insert(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateReview(Review r)
+    {
+        try 
+        {
+            rRepo.update(r);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateReviews(List<Review> l)
+    {
+        try 
+        {
+            rRepo.update(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteReview(Review r)
+    {
+        try 
+        {
+            rRepo.delete(r);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteReview(int id)
+    {
+        try 
+        {
+            rRepo.delete(id);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteReviews(List<Review> l)
+    {
+        try 
+        {
+            rRepo.delete(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteReviews(int[] ids)
+    {
+        try 
+        {
+            rRepo.delete(ids);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    // Metodi per Category
+    public void insertCategory(Category c)
+    {
+        try 
+        {
+            catRepo.insert(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void insertCategories(List<Category> l)
+    {
+        try 
+        {
+            catRepo.insert(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateCategory(Category c)
+    {
+        try 
+        {
+            catRepo.update(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void updateCategories(List<Category> l)
+    {
+        try 
+        {
+            catRepo.update(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteCategory(Category c)
+    {
+        try 
+        {
+            catRepo.delete(c);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteCategory(int id)
+    {
+        try 
+        {
+            catRepo.delete(id);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteCategories(List<Category> l)
+    {
+        try 
+        {
+            catRepo.delete(l);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+    public void deleteCategories(int[] ids)
+    {
+        try 
+        {
+            catRepo.delete(ids);
+        } 
+        catch (SQLException ex) 
+        {
+            ex.printStackTrace();
+        }
+    }
+
+
 //METODI DI UTILITY
     private Map<Integer,List<Batch>> groupBatches()
     {
