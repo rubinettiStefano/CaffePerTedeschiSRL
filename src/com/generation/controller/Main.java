@@ -23,6 +23,9 @@ public class Main
                 case "printclients":
                     h.printAllClient();
                 break;
+                case "insieme":
+                    h.stampareProdottiDiCatBevEClienteItaliano();
+                break;
                 case "quit":
                     System.out.println("Ciao ciao");
                 break;
