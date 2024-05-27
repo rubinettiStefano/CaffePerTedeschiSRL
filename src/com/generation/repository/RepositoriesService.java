@@ -132,6 +132,111 @@ public class RepositoriesService
         }
     }
 //FINE CONTRACT
+//INIZIO REVIEW
+public Review selectReview(int id)
+{
+    try 
+    {
+        Review c = rRepo.select(id);
+        return c;
+    } 
+    catch (SQLException e) 
+    {
+        e.printStackTrace();
+        return null;
+    }
+}
+
+public List<Review> selectAllReviews()
+{
+    try 
+    {
+        List<Review> res = rRepo.selectAll();
+
+        return res;
+    } 
+    catch (SQLException e) 
+    {
+        e.printStackTrace();
+        return null;
+    }
+}
+
+public List<Review> selectReviews(String condition)
+{
+    try 
+    {
+        List<Review> res = rRepo.select(condition);
+
+        return res;
+    } 
+    catch (SQLException e) 
+    {
+        e.printStackTrace();
+        return null;
+    }
+}
+//FINE REVIEW
+//INIZIO PRODUCT
+public Product selectProduct(int id)
+{
+    try 
+    {
+        Product c = pRepo.select(id);
+        c.setContracts(groupContracts().get(c.getId()));
+        c.setReviews(groupReviews().get(c.getId()));
+        //imposta i batch figli del contratto
+        //prendendo la mappa
+        //e prendendo la lista che ha come chiave l'id del contratto
+        return c;
+    } 
+    catch (SQLException e) 
+    {
+        e.printStackTrace();
+        return null;
+    }
+}
+
+public List<Product> selectAllProducts()
+{
+    try 
+    {
+        List<Product> res = pRepo.selectAll();
+
+        for(Product c : res)
+        {
+            c.setContracts(groupContracts().get(c.getId()));
+            c.setReviews(groupReviews().get(c.getId()));
+        }
+        return res;
+    } 
+    catch (SQLException e) 
+    {
+        e.printStackTrace();
+        return null;
+    }
+}
+
+public List<Product> selectPoducts(String condition)
+{
+    try 
+    {
+        List<Product> res = pRepo.select(condition);
+
+        for(Product c : res)
+        {
+            c.setContracts(groupContracts().get(c.getId()));
+            c.setReviews(groupReviews().get(c.getId()));
+        }
+        return res;
+    } 
+    catch (SQLException e) 
+    {
+        e.printStackTrace();
+        return null;
+    }
+}
+//FINE PRODUCT
 
 //METODI DI UTILITY
     private Map<Integer,List<Batch>> groupBatches()
@@ -178,4 +283,79 @@ public class RepositoriesService
 
         return res;
     }
+
+    private Map<Integer,List<Review>> groupReviews()
+    {
+        List<Review> all = selectAllReviews();
+        Map<Integer,List<Review>> res = new HashMap<>();
+
+        for(Review b : all)
+        {
+            int fk = b.getProduct_id();
+
+            if(!res.containsKey(fk))
+            {
+                List<Review> temp = new ArrayList<>();
+                temp.add(b);
+                res.put(fk, temp);
+            }
+            else
+                res.get(fk).add(b);
+        }
+
+        return res;
+    }
+
+    //avremo 3 metodi in 1
+    //la chiave String sarà il nome dell'entita padre (client,employee,category)
+    //il valore associato sarà la mappa con chiavi esterne verso quell'entità e prodotti figli
+    private Map<String,Map<Integer,List<Product>>> groupProducts()
+    {
+        List<Product> all = selectAllProducts();
+        Map<String,Map<Integer,List<Product>>> res = new HashMap<>();
+        Map<Integer,List<Product>> mapEmp = new HashMap<>();
+        Map<Integer,List<Product>> mapCat = new HashMap<>();
+        Map<Integer,List<Product>> mapCl = new HashMap<>();
+
+        for(Product b : all)
+        {
+            int fkEmp = b.getEmployee_id();
+            int fkCat = b.getCategory_id();
+            int fkCl = b.getClient_id();
+
+            if(!mapEmp.containsKey(fkEmp))
+            {
+                List<Product> temp = new ArrayList<>();
+                temp.add(b);
+                mapEmp.put(fkEmp, temp);
+            }
+            else
+                mapEmp.get(fkEmp).add(b);
+
+            if(!mapCat.containsKey(fkCat))
+            {
+                List<Product> temp = new ArrayList<>();
+                temp.add(b);
+                mapCat.put(fkCat, temp);
+            }
+            else
+                mapCat.get(fkCat).add(b);
+
+            
+            if(!mapCl.containsKey(fkCl))
+            {
+                List<Product> temp = new ArrayList<>();
+                temp.add(b);
+                mapCl.put(fkCl, temp);
+            }
+            else
+                mapCl.get(fkCl).add(b);
+        }
+
+        res.put("employee", mapEmp);
+        res.put("client", mapCl);
+        res.put("category", mapCat);
+        return res;
+    }
+
 }
