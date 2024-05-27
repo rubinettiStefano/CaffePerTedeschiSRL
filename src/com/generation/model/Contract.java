@@ -45,8 +45,9 @@ public class Contract extends Entity
 
     public void setBatches(List<Batch> batches) 
     {
-        for(Batch b : batches)
-            addBatch(b);
+        if(batches!=null)
+            for(Batch b : batches)
+                addBatch(b);
     }
 
     

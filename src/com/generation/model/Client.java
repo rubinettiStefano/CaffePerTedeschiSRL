@@ -88,8 +88,9 @@ public class Client extends Entity
 
     public void setProducts(List<Product> products) 
     {
-        for(Product p : products)
-            addProduct(p);
+        if(products!=null)
+            for(Product p : products)
+                addProduct(p);
     }
 
     public void addProduct(Product p)

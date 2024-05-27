@@ -181,14 +181,16 @@ public class Product extends Entity
 
     public void setReviews(List<Review> reviews)
     {
-        for(Review r: reviews)
-            addReview(r);
+        if(reviews!=null)
+            for(Review r: reviews)
+                addReview(r);
     }
 
     public void setContracts(List<Contract> contracts)
     {
-        for(Contract c: contracts)
-            addContract(c);
+        if(contracts!=null)
+            for(Contract c: contracts)
+                addContract(c);
     }
 
     public void addReview(Review r)
