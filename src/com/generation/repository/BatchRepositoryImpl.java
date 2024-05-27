@@ -42,7 +42,7 @@ public class BatchRepositoryImpl extends BaseRepository<Batch> implements IRepos
         pStatement.setInt(2, t.getUnitsProduced());
         pStatement.setInt(3, t.getUnityDiscarded());
         pStatement.setString(4, t.getStatus());
-        pStatement.setInt(5, t.getContrctId());
+        pStatement.setInt(5, t.getContractId());
 
 
 
@@ -61,7 +61,7 @@ public class BatchRepositoryImpl extends BaseRepository<Batch> implements IRepos
         pStatement.setInt(2, t.getUnitsProduced());
         pStatement.setInt(3, t.getUnityDiscarded());
         pStatement.setString(4, t.getStatus());
-        pStatement.setInt(5, t.getContrctId());
+        pStatement.setInt(5, t.getContractId());
 
 
         pStatement.execute();

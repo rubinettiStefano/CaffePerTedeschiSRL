@@ -24,7 +24,7 @@ public class Batch extends Entity
         this.status = status;
     }
 
-    public Integer getContrctId()
+    public Integer getContractId()
     {
         return contract_id;
     }
