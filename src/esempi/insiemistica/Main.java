@@ -40,7 +40,6 @@ public class Main
         //c è l'insieme intersezione di a con b
         //mantiene dentro c (clone di a) solo gli elementi presenti in b
 
-
         List<String> l = new ArrayList<>();
         l = new ArrayList<>(new HashSet<>(l));//versione vergognosa per eliminare i duplicati
 
