@@ -13,6 +13,14 @@ import com.generation.model.Contract;
 import com.generation.model.Employee;
 import com.generation.model.Product;
 import com.generation.model.Review;
+import com.generation.repository.abstraction.IRepository;
+import com.generation.repository.implementation.BatchRepositoryImpl;
+import com.generation.repository.implementation.CategoryRepositoryImpl;
+import com.generation.repository.implementation.ClientRepositoryImpl;
+import com.generation.repository.implementation.ContractRepositoryImpl;
+import com.generation.repository.implementation.EmployeeRepositoryImpl;
+import com.generation.repository.implementation.ProductRepositoryImpl;
+import com.generation.repository.implementation.ReviewRepositoryImpl;
 
 //Di leggere sempre senza le entità collegate
 //Leggere solo FIGLI DIRETTI e INDIRETTI, quando leggo un entità NON leggo i suoi padri, non leggo i NIPOTI. Il classico

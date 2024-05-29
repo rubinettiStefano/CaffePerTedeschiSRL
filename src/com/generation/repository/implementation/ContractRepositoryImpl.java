@@ -1,4 +1,4 @@
-package com.generation.repository;
+package com.generation.repository.implementation;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.model.Contract;
+import com.generation.repository.abstraction.BaseRepository;
+import com.generation.repository.abstraction.IRepository;
 
 public class ContractRepositoryImpl extends BaseRepository<Contract> implements IRepository<Contract>
 {

@@ -1,4 +1,4 @@
-package com.generation.repository;
+package com.generation.repository.implementation;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.generation.model.Category;
+import com.generation.repository.abstraction.BaseRepository;
+import com.generation.repository.abstraction.IRepository;
 
 public class CategoryRepositoryImpl extends BaseRepository<Category> implements IRepository<Category>
 {
@@ -81,7 +83,7 @@ public class CategoryRepositoryImpl extends BaseRepository<Category> implements 
     protected Category convertToEntity(ResultSet rs) throws SQLException {
         Category e = new Category();
         e.setId(rs.getInt("id"));
-
+        e.setName(rs.getString("name"));
         return e;
     }
 }

@@ -1,4 +1,4 @@
-package com.generation.repository;
+package com.generation.repository.abstraction;
 
 import java.sql.SQLException;
 import java.util.List;
