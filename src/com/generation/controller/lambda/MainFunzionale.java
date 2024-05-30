@@ -19,8 +19,9 @@ public class MainFunzionale
                         };
 
 
+                            //parametri
         Matematica m3 =     (pippo,pluto) -> //prima della freccia mettiamo semplicemente i nomi dei parametri
-                            {
+                            {//corpo
                                 return pippo+pluto;
                             };
 
@@ -29,4 +30,8 @@ public class MainFunzionale
 
         System.out.println(m2.calcola(10, 20));
     }
+
+    //CALLBACK
+    //Un metodo (funzione) che ne riceve un altro come parametro e lo usa al suo interno
+    
 }
