@@ -31,6 +31,7 @@ public class CorrezioneLambda extends BaseHandler
                             .collect(Collectors.toList());//Lista String
 
         System.out.println(res);
+
     }
 
     public void es2()
